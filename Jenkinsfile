@@ -12,10 +12,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'ls /'
-                sh 'apt-get -y install sudo'
-                sh 'useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo'
+                sh 'npm config set cache /home/ --global'
                 sh 'node -v'
-                sh 'sudo npm install'
+                sh 'npm install'
             }
         }
         stage('Test') {
