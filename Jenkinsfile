@@ -11,7 +11,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm cache clean --force '
+                sh 'ls /'
+                sh 'npm config set cache /home/ubuntu/ --global '
                 sh 'node -v'
                 sh 'npm install'
             }
