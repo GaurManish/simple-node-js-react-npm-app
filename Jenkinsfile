@@ -11,6 +11,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'node -v'
+                sh 'chmod 777 /'
                 sh 'npm install --global yarn'
                 sh 'yarn install'
             }
