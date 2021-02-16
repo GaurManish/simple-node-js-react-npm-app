@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:13-alpine'
+            image 'node:6-alpine'
             args '-p 3000:3000'
         }
     }
@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'npm cache clean --force '
                 sh 'node -v'
                 sh 'npm install'
             }
