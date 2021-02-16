@@ -11,8 +11,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo npm i yarn -g'
-                sh 'yarn add'
+                sh 'npm i yarn -g'
+                sh 'yarn install'
             }
         }
         stage('Test') {
