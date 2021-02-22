@@ -1,0 +1,27 @@
+apiVersion: Deployment
+metadata :
+ name: jenkins
+spec : 
+ selector:
+   matchLables:
+     app : jenkins
+   replicas : 1 
+   template:
+     metadata:
+       lables:
+          app: jenkins
+     spec: 
+       containers:
+          - name: jenkins 
+            image : jenkins/jenkins:lts
+            ports: 
+               - name: http:-port
+                 containerport : 8080
+               - name: jnlp-port
+                 containerPort:50000
+             volumeMounts:
+               - name: jenkins-home
+                 mountPath: var/jenkins_home
+        volumes:
+                - name: jenkins-home
+                  erptyDir: {}
